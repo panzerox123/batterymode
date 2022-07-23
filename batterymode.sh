@@ -11,7 +11,7 @@ case $1 in
         echo -n $3 > /sys/class/power_supply/BAT0/charge_stop_threshold
         ;;
     power)
-        cat /sys/class/power_supply/BAT0/power_now
+	    echo $(cat /sys/class/power_supply/BAT0/power_now) / 1000000 | bc -l
         ;;
     status)
         printf "Start Threshold:\n" 
